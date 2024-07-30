@@ -10,11 +10,18 @@ provider "aws" {
   region = var.region
 }
 
+locals {
+  name = "noahs-cluster"
+  tags = {
+    Example = local.name
+  }
+}
+
 module "vpc" {
   source  = "terraform-aws-modules/vpc/aws"
   version = "5.9.0"
 
-  name = var.name
+  name = local.name
   cidr = var.vpc_cidr
 
   azs             = var.availability_zones
@@ -37,7 +44,7 @@ module "eks" {
   source  = "terraform-aws-modules/eks/aws"
   version = "~> 20.0"
 
-  cluster_name                   = var.name
+  cluster_name                   = local.name
   cluster_endpoint_public_access = true
 
   cluster_addons = {
@@ -59,7 +66,7 @@ module "eks" {
   # EKS Managed Node Group(s)
   eks_managed_node_group_defaults = {
     ami_type       = "AL2_x86_64"
-    instance_types = ["m5.micro"]
+    instance_types = ["m5.small"]
 
     attach_cluster_primary_security_group = true
   }
@@ -70,7 +77,7 @@ module "eks" {
       max_size     = 2
       desired_size = 1
 
-      instance_types = ["t3.micro"]
+      instance_types = ["t3.small"]
       capacity_type  = "SPOT"
 
       tags = {
@@ -78,5 +85,28 @@ module "eks" {
       }
     }
   }
+  tags = local.tags
 }
+
+# resource "aws_iam_role" "eks_node_role" {
+#   name = "eks-node-role"
+#   assume_role_policy = jsonencode({
+#     Version = "2012-10-17"
+#     Statement = [
+#       {
+#         Action = "sts:AssumeRole"
+#         Effect = "Allow"
+#         Principal = {
+#           Service = "ec2.amazonaws.com"
+#         }
+#       },
+#     ]
+#   })
+# }
+
+# resource "aws_iam_role_policy_attachment" "eks_node_role_attachment" {
+#   for_each = toset(var.eks_node_role)
+#   policy_arn = "arn:aws:iam::aws:policy/${each.value}"
+#   role = aws_iam_role.eks_node_role.name
+# }
 

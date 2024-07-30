@@ -10,4 +10,11 @@ To deploy my application on the EKS cluster, I used Docker to create an image of
 Additionally, I used Route 53 and Certificate Manager on AWS to obtain and validate my domain name.
 
 # Tools used:
+<div>
+  <img src="https://github.com/devicons/devicon/blob/master/icons/docker/docker-original-wordmark.svg" width="40" height="40"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <img src="https://github.com/devicons/devicon/blob/master/icons/terraform/terraform-original-wordmark.svg" width="40" height="40"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <img src="https://github.com/devicons/devicon/blob/master/icons/kubernetes/kubernetes-original-wordmark.svg" width="40" height="40"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <img src="https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg" width="40" height="40"/>
+</div>
+
 

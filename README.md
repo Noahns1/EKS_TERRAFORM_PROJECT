@@ -8,3 +8,6 @@ The link above directs to the website I deployed and orchestrated using Terrafor
 To deploy my application on the EKS cluster, I used Docker to create an image of my application. I then pushed it to my Elastic Container Repository (ECR) on AWS, allowing the EKS cluster to access the containerized application. I deployed the application from ECR to EKS using a deployment to manage the pods, alongside a service load balancer and an ingress to make the application accessible on the web.
 
 Additionally, I used Route 53 and Certificate Manager on AWS to obtain and validate my domain name.
+
+# Tools used:
+

@@ -17,4 +17,6 @@ Additionally, I used Route 53 and Certificate Manager on AWS to obtain and valid
   <img src="https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg" width="40" height="40"/>
 </div>
 
+# Project Flow Chart
 
+![Project Flow Chart](Images/ProjectFlowChart.png)

@@ -19,4 +19,4 @@ Additionally, I used Route 53 and Certificate Manager on AWS to obtain and valid
 
 # Project Flow Chart
 
-<img src="Images/ProjectFlowChart2.png" width="400" height="600"/>
+<img src="Images/ProjectFlowChart2.png" width="600" height="600"/>
